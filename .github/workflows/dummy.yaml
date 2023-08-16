@@ -13,6 +13,6 @@ jobs:
       id: getBranch
 
     - name: Print Merged Branch Name
-      run: echo "Merged branch: $BASE_NAME"
+      run: echo "Merged branch:"
       env:
         BASENAME: ${{ steps.getBranch.outputs.branch }}
