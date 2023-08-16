@@ -7,13 +7,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Get Toolkit
-      id: toolkit
-      uses: actions/toolkit@v2
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: getBranch
 
     - name: Print Merged Branch Name
-      run: echo "Merged branch: $BASENAME"
+      run: echo "Merged branch: $BASE_NAME"
       env:
-        BASENAME: ${{ steps.toolkit.outputs.basename }}
-    outputs:
-      basename: ${{ steps.toolkit.outputs.basename }}
+        BASENAME: ${{ steps.getBranch.outputs.branch }}
