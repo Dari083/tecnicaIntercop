@@ -15,6 +15,6 @@ jobs:
     - name: Print Merged Branch Name
       run: echo "REF_NAME $REF_NAME and HEAD_REF $HEAD_REF"
       env:
-        REF_NAME: ${{ github_ref }}
+        REF_NAME: ${{ github.ref }}
         HEAD_REF: ${{ github.head_ref }}
 
