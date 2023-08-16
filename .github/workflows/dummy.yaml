@@ -5,12 +5,15 @@ on: push
 jobs:
   get_branch_name:
     runs-on: ubuntu-latest
+
     steps:
     - name: Get Toolkit
       id: toolkit
       uses: actions/toolkit@v2
+
     - name: Print Merged Branch Name
-      run: echo "Merged branch: ${{ steps.toolkit.outputs.basename }}"
-
-
-
+      run: echo "Merged branch: $BASE_NAME"
+      env:
+        BASENAME: ${{ steps.toolkit.outputs.basename }}
+    outputs:
+      basename: ${{ steps.toolkit.outputs.basename }}
