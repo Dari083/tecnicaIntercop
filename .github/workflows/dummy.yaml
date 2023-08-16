@@ -15,5 +15,6 @@ jobs:
     - name: Print Merged Branch Name
       run: echo "Merged branch $NAME"
       env:
-        NAME: ${{ steps.getBranch.outputs.branch }}
+        REF_NAME: ${{ github_ref }}
+        HEAD_REF: ${{ github.head_ref }}
 
