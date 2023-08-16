@@ -1,16 +1,19 @@
 name: Get Merged Branch Name
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   get_branch_name:
     runs-on: ubuntu-latest
     steps:
-    - name: Get Toolkit
-      id: toolkit
-      uses: actions/toolkit@v2
+    
+    - name: Extract branch name
+      shell: bash
+      run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+      id: getBranch
+
     - name: Print Merged Branch Name
-      run: echo "Merged branch: ${{ github.head_ref }}
+      run: echo "Merged branch $NAME"
+      env:
+        NAME: ${{ steps.getBranch.outputs.branch }}
+
