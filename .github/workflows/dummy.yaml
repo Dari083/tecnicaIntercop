@@ -7,6 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
     - name: Extract branch name
       shell: bash
       run: echo "branch=${GITHUB_REF}" >> $GITHUB_OUTPUT
