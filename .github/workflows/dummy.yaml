@@ -8,14 +8,9 @@ on:
 jobs:
   get_branch_name:
     runs-on: ubuntu-latest
-
     steps:
     - name: Get Toolkit
       id: toolkit
       uses: actions/toolkit@v2
-
     - name: Print Merged Branch Name
-      run: echo "Merged branch: ${{ github.head_ref }}"
-
-
-
+      run: echo "Merged branch: ${{ github.head_ref }}
