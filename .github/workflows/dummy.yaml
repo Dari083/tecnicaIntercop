@@ -1,6 +1,10 @@
 name: Get Merged Branch Name
 
-on: push
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
 
 jobs:
   get_branch_name:
